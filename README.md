@@ -3,7 +3,7 @@ This is a react js project in which I follow along a tutorial to create a clone 
 
 - [x] A home/products page
 - [x] A shopping cart
-- [ ] User accounts and a login page
+- [x] User accounts and a login page
 - [ ] A checkout/payment page
 - [ ] An purchase history
 
