@@ -4,8 +4,16 @@ This is a react js project in which I follow along a tutorial to create a clone 
 - [x] A home/products page
 - [x] A shopping cart
 - [x] User accounts and a login page
-- [ ] A checkout/payment page
-- [ ] An purchase history
+- [x] A checkout/payment page
+- [x] Setup Stripe payment
+- [x] A purchase history page
+- [x] Setup express backend
 
-Tutorial page:
+### Technologies used:
+- React js with hooks
+- Firebase database and hosting
+- Stripe payment system
+- The MERN stack
+
+### Tutorial page:
 [Clever Programmers - Amazon Clone github](https://github.com/CleverProgrammers/react-challenge-amazon-clone/)

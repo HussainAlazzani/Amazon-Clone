@@ -7,22 +7,28 @@ import './App.css';
 import Login from "./Login.js";
 import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider.js";
+import Payment from "./Payment"
+import { loadStripe } from "@stripe/stripe-js"
+import { Elements } from "@stripe/react-stripe-js";
+import Orders from "./Orders.js";
+
+const promise = loadStripe("pk_test_51IczbIHjvVZAK2HOD7uNcSfNdN3TwqIVU4eRaHJioaA1oUbHXcIMb63QmovI67DQlELivbJtdBGhghQSsXEJyVIB00Ca8Af2Xr");
 
 // For css, I'll be using the BEM convention
 function App() {
 
-  const [{}, dispatch] = useStateValue();
+  const [{ }, dispatch] = useStateValue();
 
   useEffect(() => {
     auth.onAuthStateChanged(authUser => {
       if (authUser) {
         // User is logged in
         dispatch({
-          type:"SET_USER",
+          type: "SET_USER",
           user: authUser,
         });
 
-      }else{
+      } else {
         // User is logged out
         dispatch({
           type: "SET_USER",
@@ -42,6 +48,15 @@ function App() {
           <Route path="/checkout">
             <Header />
             <Checkout />
+          </Route>
+          <Route path="/payment">
+            <Header />
+            <Elements stripe={promise}>
+              <Payment />
+            </Elements>
+          </Route>
+          <Route path="/orders">
+            <Orders />
           </Route>
           <Route path="/">
             <Header />

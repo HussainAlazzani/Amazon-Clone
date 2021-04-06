@@ -1,17 +1,20 @@
 import React from "react";
 import CurrencyFormat from "react-currency-format";
+import { useHistory } from "react-router";
 import { getBasketTotal } from "./reducer";
 import { useStateValue } from "./StateProvider";
 import "./Subtotal.css";
 
 const Subtotal = () => {
-    
+
+    const history = useHistory();
+
     const [{ basket }, dispatch] = useStateValue();
-    
+
     return (
         <div className="subtotal">
-             <CurrencyFormat
-                renderText = {value => {
+            <CurrencyFormat
+                renderText={value => {
                     return (
                         <>
                             <p>
@@ -24,13 +27,16 @@ const Subtotal = () => {
                         </>
                     );
                 }}
-                decimalScale = {2}          // decimal places
+                decimalScale={2}          // decimal places
                 value={getBasketTotal(basket)}
                 displayType={"text"}
                 thousandSeparator={true}
                 prefix={"£"}
-             />
-             <button>Proceed to checkout</button>
+            />
+
+            {/* Instead of wrapping the button with a link that would change the styling of */}
+            {/* the button, we can use history to direct the user to a specific page */}
+            <button onClick={e => history.push("/payment")}>Proceed to checkout</button>
         </div>
     );
 }
