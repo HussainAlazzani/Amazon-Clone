@@ -12,7 +12,9 @@ import { loadStripe } from "@stripe/stripe-js"
 import { Elements } from "@stripe/react-stripe-js";
 import Orders from "./Orders.js";
 
-const promise = loadStripe("pk_test_51IczbIHjvVZAK2HOD7uNcSfNdN3TwqIVU4eRaHJioaA1oUbHXcIMb63QmovI67DQlELivbJtdBGhghQSsXEJyVIB00Ca8Af2Xr");
+require("dotenv").config();
+
+const promise = loadStripe(process.env.REACT_APP_STRIPE_API_KEY);
 
 // For css, I'll be using the BEM convention
 function App() {

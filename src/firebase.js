@@ -1,8 +1,9 @@
 import firebase from "firebase";
+require("dotenv").config();
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyBGKhhKpEj4IdurDRicSBGn_37sIkdbY5U",
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: "project-91850.firebaseapp.com",
     projectId: "project-91850",
     storageBucket: "project-91850.appspot.com",
